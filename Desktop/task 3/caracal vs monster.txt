@@ -1,4 +1,4 @@
-  self.name = name
+   self.name = name
         self.hp = hp
         self.attack = attack
         self.defense = defense
@@ -9,17 +9,17 @@
         return damage
 
 def start_battle():
-    raccoon = Entity("Common Raccoon", 60, 12, 5)
+    caracal = Entity("Caracal", 55, 20, 4)
     monster = Entity("Monster", 80, 10, 3)
 
-    while raccoon.hp > 0 and monster.hp > 0:
-        raccoon.attack_target(monster)
+    while caracal.hp > 0 and monster.hp > 0:
+        caracal.attack_target(monster)
         if monster.hp <= 0:
-            print("Common Raccoon Wins")
+            print("Caracal Wins")
             break
             
-        monster.attack_target(raccoon)
-        if raccoon.hp <= 0:
+        monster.attack_target(caracal)
+        if caracal.hp <= 0:
             print("Monster Wins")
             break
 

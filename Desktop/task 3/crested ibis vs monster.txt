@@ -1,0 +1,27 @@
+self.name = name
+        self.hp = hp
+        self.attack = attack
+        self.defense = defense
+
+    def attack_target(self, target):
+        damage = max(0, self.attack - target.defense)
+        target.hp -= damage
+        return damage
+
+def start_battle():
+    ibis = Entity("Crested Ibis", 50, 15, 4)
+    monster = Entity("Monster", 80, 10, 3)
+
+    while ibis.hp > 0 and monster.hp > 0:
+        ibis.attack_target(monster)
+        if monster.hp <= 0:
+            print("Crested Ibis Wins")
+            break
+            
+        monster.attack_target(ibis)
+        if ibis.hp <= 0:
+            print("Monster Wins")
+            break
+
+if __name__ == "__main__":
+    start_battle()

@@ -1,0 +1,16 @@
+import sys
+from itertools import permutations
+
+def solve():
+    s = sys.stdin.readline().strip()
+    if not s:
+        return
+    
+    res = sorted(list(set([''.join(p) for p in permutations(s)])))
+    
+    print(len(res))
+    for p in res:
+        print(p)
+
+if __name__ == "__main__":
+    solve()

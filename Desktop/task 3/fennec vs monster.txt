@@ -1,0 +1,29 @@
+class Entity:
+    def __init__(self, name, hp, attack, defense):
+        self.name = name
+        self.hp = hp
+        self.attack = attack
+        self.defense = defense
+
+    def attack_target(self, target):
+        damage = max(0, self.attack - target.defense)
+        target.hp -= damage
+        return damage
+
+def start_battle():
+    fennec = Entity("Fennec", 45, 18, 2)
+    monster = Entity("Monster", 80, 10, 3)
+
+    while fennec.hp > 0 and monster.hp > 0:
+        fennec.attack_target(monster)
+        if monster.hp <= 0:
+            print("Fennec Wins")
+            break
+            
+        monster.attack_target(fennec)
+        if fennec.hp <= 0:
+            print("Monster Wins")
+            break
+
+if __name__ == "__main__":
+    start_battle()
